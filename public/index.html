@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input id="input" type="text" />
+    <button onclick="sendMessage()">Send</button>
+    <textarea id="response" readonly></textarea>
+
+    <script>
+      async function sendMessage() {
+        const input = document.getElementById("input");
+        const responseDiv = document.getElementById("response");
+
+        const res = await fetch("/api/webagent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input.value.toString() }),
+        });
+
+        const data = await res.json();
+        responseDiv.value = data.response;
+      }
+    </script>
+  </body>
+</html>
