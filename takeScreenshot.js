@@ -2,8 +2,8 @@ const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
-// const url = process.argv[2];
-const url = "https://www.google.com";
+const url = process.argv[2];
+// const url = "https://www.google.com";
 const timeout = 5000;
 
 (async () => {
